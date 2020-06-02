@@ -66,14 +66,14 @@ class  ColorR{
   static const Color float_bg = Color(0xFFFDC000);
 
 
-  static const Color home_active = Color(0xff3685FF);
-  static const Color home = Color(0xff4F94FE);
+  static const Color home_active = Color(0xff32DEF7);
+  static const Color home = Color(0xff3295F7);
   static const Color home_no = Color(0xffB6B8BB);
   static final primaryGradient = Gradients.buildGradient(
       Alignment.topLeft, Alignment.bottomRight, [home_active, home]
   );
 
   static final whiteGradient = Gradients.buildGradient(
-      Alignment.topLeft, Alignment.bottomRight, [home_no, home_no]
+      Alignment.topLeft, Alignment.bottomRight, [home_active, home]
   );
 }

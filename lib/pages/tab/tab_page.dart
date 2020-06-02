@@ -115,13 +115,13 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
   ///首页按钮
   Widget homeFloatingButton() {
     return Container(
-      height: ScreenAdapter.height(110),
-      width: ScreenAdapter.width(110),
+      height: ScreenAdapter.height(105),
+      width: ScreenAdapter.width(105),
       child: CircularGradientButton(
         child: Image.asset(
           'assets/images/tab_home.png',
-          height: ScreenUtil().setHeight(70),
-          width: ScreenUtil().setWidth(70),
+          height: ScreenUtil().setHeight(130),
+          width: ScreenUtil().setWidth(130),
         ),
         callback: () {
           currentIndex = 2;
