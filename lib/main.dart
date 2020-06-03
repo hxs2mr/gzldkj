@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gzldtechnology/pages/tab/tab_page.dart';
-import 'package:gzldtechnology/routers/application.dart';
 import 'package:gzldtechnology/routers/routers.dart';
 import 'package:gzldtechnology/utils/local.dart';
 import 'package:oktoast/oktoast.dart';

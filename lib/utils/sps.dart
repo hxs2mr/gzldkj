@@ -14,12 +14,19 @@ class Sps{
   static const Widget vGap4 = const SizedBox(height: 4.0);
   static const Widget vGap8= const SizedBox(height: 8.0,);
 
+  static Widget buildHGaps(px){
+    return SizedBox(height: ScreenAdapter.height(px),);
+  }
+
+  static Widget buildWGaps(px){
+    return SizedBox(width: ScreenAdapter.width(px),);
+  }
 
   static Widget hPure660  =     Container(
     alignment: Alignment.center,
-    height: ScreenAdapter.height(2),
+    height: ScreenAdapter.height(1),
     width: ScreenAdapter.width(660),
-    color: Color(0xFFF2F4F5),
+    color: Color(0xFFE9E9E9),
   );
 
 }

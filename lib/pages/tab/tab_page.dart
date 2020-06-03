@@ -27,14 +27,14 @@ class TabPage extends StatefulWidget {
 class TabWidgetState extends BaseState<TabPage, TabPresenter>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   var _pageList;
-  int currentIndex =2;
+  int currentIndex =1;
 
   //页面控制器
   PageController _pageController;
 
   @override
   void initState() {
-    _pageController = new PageController(initialPage: 2);
+    _pageController = new PageController(initialPage: 1);
     super.initState();
     initPage();
   }
@@ -75,6 +75,7 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
   final _selectColor = Color(0x983987FF);
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     ScreenAdapter.init(context);
     return new WillPopScope(
         onWillPop: _onExit,
@@ -111,7 +112,7 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
     Toast.cancelToast();
     return Future.value(true);
   }
-   
+
   ///首页按钮
   Widget homeFloatingButton() {
     return Container(

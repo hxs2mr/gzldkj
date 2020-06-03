@@ -39,6 +39,12 @@ dependencies:
   flutter_screenutil: ^1.1.0
   #路由管理
   fluro: ^1.6.3
+  #图片缓存加载
+  cached_network_image: ^2.2.0+1
+  #banner
+  flutter_swiper: ^1.1.6
+  #加载动画
+  flutter_spinkit: ^4.1.2+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

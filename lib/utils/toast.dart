@@ -4,11 +4,11 @@ import 'package:oktoast/oktoast.dart';
 //describe:封装一下toast
 
 class Toast{
-    static show(String msg,{duration=2000}){
+    static show(String msg,{duration=2}){
       if(msg==null){
         return;
       }
-      showToast(msg,duration: duration,dismissOtherToast: true);
+      showToast(msg,duration: Duration(seconds: duration),dismissOtherToast: true);
     }
 
     static cancelToast(){
