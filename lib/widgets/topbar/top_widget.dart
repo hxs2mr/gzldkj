@@ -34,8 +34,7 @@ class _TopWidgetState extends State<TopWidget> {
           Column(
             children: <Widget>[
               buildTitle(),
-              buildTopBanner(),
-
+              widget.tag!=3?buildTopBanner():Container(),
             ],
           )
 
