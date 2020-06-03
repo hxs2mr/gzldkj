@@ -30,7 +30,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
             ScreenAdapter.width(20.0), 0, ScreenAdapter.width(20.0), 0),
         height: ScreenAdapter.height(340.0),
         child: _buildBlocWidget());
-   }
+  }
 
   ///请求状
   Widget _buildBlocWidget() {
@@ -38,7 +38,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
       return ContainerTip(
         backgroundColor: Colors.grey,
         label: "网络出错!",
-      );  
+      );
     } else {
       listData = widget.listData;
       if (listData.length > 0) {
@@ -64,16 +64,16 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
 
   Widget _buildSwierView1(List<String> listData){
     return   Swiper.children(
-      duration: 2000,
-      autoplay: true,
-      pagination: new SwiperPagination(
-          margin: EdgeInsets.only(bottom: ScreenAdapter.width(20.0)),
-          builder: DotSwiperPaginationBuilder(
-              color: Colors.black54,
-              activeColor: Colors.white,
-              activeSize: ScreenAdapter.setSize(15),
-              size: ScreenAdapter.setSize(15))),
-       children:buildWidgets(listData)
+        duration: 2000,
+        autoplay: true,
+        pagination: new SwiperPagination(
+            margin: EdgeInsets.only(bottom: ScreenAdapter.width(20.0)),
+            builder: DotSwiperPaginationBuilder(
+                color: Colors.black54,
+                activeColor: Colors.white,
+                activeSize: ScreenAdapter.setSize(15),
+                size: ScreenAdapter.setSize(15))),
+        children:buildWidgets(listData)
 
     );
   }
@@ -105,7 +105,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
           height: ScreenAdapter.height(340.0),
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,
-         ),
+        ),
       ),
 
       autoplay: true,

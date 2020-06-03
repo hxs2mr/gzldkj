@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:gzldtechnology/base/base_state.dart';
 import 'package:gzldtechnology/pages/my/presenter/my_presenter.dart';
 import 'package:gzldtechnology/utils/screen_adapter.dart';
-import 'package:gzldtechnology/widgets/topbar/top_widget.dart';
+import 'package:gzldtechnology/widgets/topbar/top_toolback.dart';
+import 'package:gzldtechnology/widgets/topbar/top_toolbar.dart';
 
 //create by :xs
 //day by2020/6/2.
@@ -22,14 +23,31 @@ class MyPageState extends BaseState<MyPage,MyPresenter> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                TopWidget(tag:3,title: "我的",)
-              ],
-            ),
+          body: Container(
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  TopToolBack(tag: 1,),
+                  TopToolBar(title: "我的",),
+
+                  Container(
+                      padding: EdgeInsets.only(top: ScreenAdapter.height(130)),
+                      child:ListView(
+                        padding: EdgeInsets.all(0),
+                        children: [
+
+
+                        ],
+                      )
+                  )
+
+
+                ],
+              )
+
+
+
+
           )
 
       ),

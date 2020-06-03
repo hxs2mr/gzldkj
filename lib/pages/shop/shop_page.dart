@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:gzldtechnology/base/base_state.dart';
 import 'package:gzldtechnology/pages/shop/presenter/shop_presenter.dart';
 import 'package:gzldtechnology/utils/screen_adapter.dart';
-import 'package:gzldtechnology/widgets/topbar/top_widget.dart';
+import 'package:gzldtechnology/widgets/topbar/top_banner_widget.dart';
+import 'package:gzldtechnology/widgets/topbar/top_toolback.dart';
+import 'package:gzldtechnology/widgets/topbar/top_toolbar.dart';
 //create by :xs
 //day by2020/6/2.
 //describe:商场
@@ -13,22 +15,44 @@ class ShopPage extends StatefulWidget {
 }
 
 class ShopPageState extends BaseState<ShopPage,ShopPresenter> {
+  List<String>  banner=[
+    "http://static.loupan.com/upfile/image/20130819/20130819111154_77374.jpg",
+    "http://5b0988e595225.cdn.sohucs.com/images/20180825/462d8c71ecd04b94a8306e8a8872c405.jpeg"
+  ];
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
-        body: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TopWidget(tag:0,title: "商城",)
+          body: Container(
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  TopToolBack(tag: 0,),
+                  TopToolBar(title: "商城",),
+
+                  Container(
+                      padding: EdgeInsets.only(top: ScreenAdapter.height(130)),
+                      child:ListView(
+                        padding: EdgeInsets.all(0),
+                        children: [
+                          TopBannerWidget(
+                            listData: banner,
+                          ),
+
+                        ],
+                      )
+                  )
+
+
                 ],
-              ),
-            )
+              )
+
+
+
+
+          )
 
       ),
 

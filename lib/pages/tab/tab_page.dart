@@ -72,7 +72,8 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
   );
 
   final _nomorColor = Colors.grey;
-  final _selectColor = Color(0x983987FF);
+  final _selectColor = Color(0xff3199FF);
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
