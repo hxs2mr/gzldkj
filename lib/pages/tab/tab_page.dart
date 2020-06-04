@@ -97,7 +97,8 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
               : bottomDocked,
           floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
           bottomNavigationBar: BottomAppBar(
-              color: Color(0xfff9f9f9),
+              color: Color(0xfff5f5f5),
+              elevation: 0.0,
               shape: CircularNotchedRectangle(),
               child: rowHomeButton()),
         ));
@@ -142,99 +143,104 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
 
   ///报名 和 个人中心按钮
   Widget rowHomeButton() {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: FlatColumnButton(
-            ///图片渐变加深
-            icon: AnimatedCrossFade(
-              duration: Duration(milliseconds: 500),
-              firstChild:
-              _buildImagesAsset('assets/images/tab_shop_nor.png'),
-              secondChild:
-              _buildImagesAsset('assets/images/tab_shop_sel.png'),
-              crossFadeState: currentIndex != 0
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(topLeft:Radius.circular(20) ,topRight:Radius.circular(20)),
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: FlatColumnButton(
+              ///图片渐变加深
+              icon: AnimatedCrossFade(
+                duration: Duration(milliseconds: 500),
+                firstChild:
+                _buildImagesAsset('assets/images/tab_shop_nor.png'),
+                secondChild:
+                _buildImagesAsset('assets/images/tab_shop_sel.png'),
+                crossFadeState: currentIndex != 0
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+              ),
+              label: "商城",
+              labelColor: currentIndex == 0 ? _selectColor : _nomorColor,
+              onPressed: () {
+                setState(() {
+                  currentIndex = 0;
+                  locationTap = kFabBottomFloat;
+                  _pageController.jumpToPage(currentIndex);
+                });
+              },
             ),
-            label: "商城",
-            labelColor: currentIndex == 0 ? _selectColor : _nomorColor,
-            onPressed: () {
-              setState(() {
-                currentIndex = 0;
-                locationTap = kFabBottomFloat;
-                _pageController.jumpToPage(currentIndex);
-              });
-            },
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: FlatColumnButton(
-            ///图片渐变加深
-            icon: AnimatedCrossFade(
-              duration: Duration(milliseconds: 500),
-              firstChild:
-              _buildImagesAsset('assets/images/tab_express_nor.png'),
-              secondChild:
-              _buildImagesAsset('assets/images/tab_service_sel.png'),
-              crossFadeState: currentIndex != 1
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
+          Expanded(
+            flex: 1,
+            child: FlatColumnButton(
+              ///图片渐变加深
+              icon: AnimatedCrossFade(
+                duration: Duration(milliseconds: 500),
+                firstChild:
+                _buildImagesAsset('assets/images/tab_express_nor.png'),
+                secondChild:
+                _buildImagesAsset('assets/images/tab_service_sel.png'),
+                crossFadeState: currentIndex != 1
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+              ),
+              label: "服务中心",
+              labelColor: currentIndex == 1 ? _selectColor : _nomorColor,
+              onPressed: () {
+                setState(() {
+                  currentIndex = 1;
+                  locationTap = kFabBottomFloat;
+                  _pageController.jumpToPage(currentIndex);
+                });
+              },
             ),
-            label: "服务中心",
-            labelColor: currentIndex == 1 ? _selectColor : _nomorColor,
-            onPressed: () {
-              setState(() {
-                currentIndex = 1;
-                locationTap = kFabBottomFloat;
-                _pageController.jumpToPage(currentIndex);
-              });
-            },
           ),
-        ),
-        SizedBox(
-          width: ScreenUtil().setWidth(100.0),
-        ),
-        Expanded(
-          child: FlatColumnButton(
-            ///图片渐变加深
-            icon: AnimatedCrossFade(
-              duration: Duration(milliseconds: 500),
-              firstChild:
-              _buildImagesAsset('assets/images/tab_express_nor.png'),
-              secondChild:
-              _buildImagesAsset('assets/images/tab_express_sel.png'),
-              crossFadeState: currentIndex != 3
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
-            ),
-            label: "体验中心",
-            labelColor: currentIndex == 3 ? _selectColor : _nomorColor,
-            onPressed: () {
-              setState(() {
-                currentIndex = 3;
-                locationTap = kFabBottomFloat;
-                _pageController.jumpToPage(currentIndex);
-              });
-            },
+          SizedBox(
+            width: ScreenUtil().setWidth(100.0),
           ),
-        ),
-        Expanded(
-          child: FlatColumnButton(
-            icon: AnimatedCrossFade(
-              duration: Duration(milliseconds: 500),
-              firstChild:
-              _buildImagesAsset('assets/images/tab_my_nor.png'),
-              secondChild:
-              _buildImagesAsset('assets/images/tab_my_sel.png'),
-              crossFadeState: currentIndex != 4
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
+          Expanded(
+            child: FlatColumnButton(
+              ///图片渐变加深
+              icon: AnimatedCrossFade(
+                duration: Duration(milliseconds: 500),
+                firstChild:
+                _buildImagesAsset('assets/images/tab_express_nor.png'),
+                secondChild:
+                _buildImagesAsset('assets/images/tab_express_sel.png'),
+                crossFadeState: currentIndex != 3
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+              ),
+              label: "体验中心",
+              labelColor: currentIndex == 3 ? _selectColor : _nomorColor,
+              onPressed: () {
+                setState(() {
+                  currentIndex = 3;
+                  locationTap = kFabBottomFloat;
+                  _pageController.jumpToPage(currentIndex);
+                });
+              },
             ),
-            label: '我的',
-            labelColor: currentIndex == 4 ? _selectColor : _nomorColor,
-            onPressed: () {
+          ),
+          Expanded(
+            child: FlatColumnButton(
+              icon: AnimatedCrossFade(
+                duration: Duration(milliseconds: 500),
+                firstChild:
+                _buildImagesAsset('assets/images/tab_my_nor.png'),
+                secondChild:
+                _buildImagesAsset('assets/images/tab_my_sel.png'),
+                crossFadeState: currentIndex != 4
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+              ),
+              label: '我的',
+              labelColor: currentIndex == 4 ? _selectColor : _nomorColor,
+              onPressed: () {
 //              _hasToken
 //                  ? setState(() {
 //                currentIndex = 2;
@@ -242,16 +248,17 @@ class TabWidgetState extends BaseState<TabPage, TabPresenter>
 //                _pageController.jumpToPage(currentIndex);
 //              })
 //                  : NavigatorUtil.jumpLogin(context); //在未登录的情况下  跳转到登录界面
-              setState(() {
-                currentIndex = 4;
-                locationTap = kFabBottomFloat;
-                _pageController.jumpToPage(currentIndex);
-              });
-            },
-          ),
-        )
-      ],
-    );
+                setState(() {
+                  currentIndex = 4;
+                  locationTap = kFabBottomFloat;
+                  _pageController.jumpToPage(currentIndex);
+                });
+              },
+            ),
+          )
+        ],
+      )
+    ) ;
   }
 
   ///首页图标

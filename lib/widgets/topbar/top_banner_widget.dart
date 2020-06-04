@@ -28,7 +28,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
     return Container(
         padding: EdgeInsets.fromLTRB(
             ScreenAdapter.width(20.0), 0, ScreenAdapter.width(20.0), 0),
-        height: ScreenAdapter.height(340.0),
+        height: ScreenAdapter.height(330.0),
         child: _buildBlocWidget());
   }
 
@@ -62,21 +62,21 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
     }
   }
 
-  Widget _buildSwierView1(List<String> listData){
-    return   Swiper.children(
-        duration: 2000,
-        autoplay: true,
-        pagination: new SwiperPagination(
-            margin: EdgeInsets.only(bottom: ScreenAdapter.width(20.0)),
-            builder: DotSwiperPaginationBuilder(
-                color: Colors.black54,
-                activeColor: Colors.white,
-                activeSize: ScreenAdapter.setSize(15),
-                size: ScreenAdapter.setSize(15))),
-        children:buildWidgets(listData)
-
-    );
-  }
+//  Widget _buildSwierView1(List<String> listData){
+//    return   Swiper.children(
+//        duration: 2000,
+//        autoplay: true,
+//        pagination: new SwiperPagination(
+//            margin: EdgeInsets.only(bottom: ScreenAdapter.width(20.0)),
+//            builder: DotSwiperPaginationBuilder(
+//                color: Colors.black54,
+//                activeColor: Colors.white,
+//                activeSize: ScreenAdapter.setSize(15),
+//                size: ScreenAdapter.setSize(15))),
+//        children:buildWidgets(listData)
+//
+//    );
+//  }
   List<Widget> buildWidgets(List<String> listData){
 
     List<Widget> lists=[];
@@ -85,7 +85,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
         borderRadius: BorderRadius.circular(ScreenAdapter.width(20.0)),
         child:new CachedNetworkImage(
           imageUrl: listData[i],
-          height: ScreenAdapter.height(350.0),
+          height: ScreenAdapter.height(330.0),
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fitWidth,
         ),
@@ -102,7 +102,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
         borderRadius: BorderRadius.circular(ScreenAdapter.width(20.0)),
         child:new CachedNetworkImage(
           imageUrl: listData[index],
-          height: ScreenAdapter.height(340.0),
+          height: ScreenAdapter.height(330.0),
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,
         ),

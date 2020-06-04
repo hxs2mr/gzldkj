@@ -10,9 +10,10 @@ class HomePage extends StatefulWidget {
   HomePageState createState() => HomePageState();
 }
 
-class HomePageState extends BaseState<HomePage,HomePresenter> {
+class HomePageState extends BaseState<HomePage,HomePresenter>with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Center(
       child: Text("首页"),
     );
@@ -23,4 +24,7 @@ class HomePageState extends BaseState<HomePage,HomePresenter> {
     // TODO: implement createPresenter
     return HomePresenter();
   }
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

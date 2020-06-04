@@ -37,9 +37,7 @@ class _TopWidgetState extends State<TopWidget> {
               widget.tag!=3?buildTopBanner():Container(),
             ],
           )
-
          // buildTopTitle (),
-
         ],
     );
   }

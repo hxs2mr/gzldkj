@@ -13,7 +13,7 @@ class TopToolBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-        height: ScreenAdapter.height(120),
+        height: ScreenAdapter.height(130),
         width: double.infinity,
         child:  AppBar(
             elevation: 0,

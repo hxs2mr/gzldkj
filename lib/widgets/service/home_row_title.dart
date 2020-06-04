@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gzldtechnology/utils/color.dart';
 import 'package:gzldtechnology/utils/screen_adapter.dart';
 
 //create by :xs
@@ -7,11 +6,11 @@ import 'package:gzldtechnology/utils/screen_adapter.dart';
 //describe:标题+子child
 class HomeRowTitle extends StatelessWidget {
   const HomeRowTitle(
-      {Key key, this.title, this.onPressed})
+      {Key key, this.title, this.onPressed,this.tag})
       : super(key: key);
   final String title;
   final GestureTapCallback onPressed;
-
+  final tag;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,14 +22,14 @@ class HomeRowTitle extends StatelessWidget {
         child:_buildTitleView());
   }
 
-  Widget _buildTitleView() {    
+  Widget _buildTitleView() {
     return Container(
       height: ScreenAdapter.height(80),
       margin: EdgeInsets.fromLTRB(ScreenAdapter.width(20), 0,  ScreenAdapter.height(15), ScreenAdapter.height(5)),
       child: Row(
         children: <Widget>[
           Container(    
-            child: Image.asset("assets/images/icon_service_bo.png",width: ScreenAdapter.width(48),height: ScreenAdapter.height(48),),
+            child: Image.asset(tag==1?"assets/images/icon_service_bo.png":"assets/images/icon_zhi.png",width: ScreenAdapter.width(48),height: ScreenAdapter.height(48),),
           ),
 //          Gaps.buildWGaps(25.0),
           Container(

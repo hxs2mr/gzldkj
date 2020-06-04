@@ -29,7 +29,7 @@ class HomeRowWidget extends StatelessWidget {
 
   Widget _buildTitleView() {
     return Container(
-      margin: EdgeInsets.fromLTRB(ScreenAdapter.width(20), ScreenAdapter.height(20),  ScreenAdapter.height(15), ScreenAdapter.height(5)),
+      margin: EdgeInsets.fromLTRB(ScreenAdapter.width(20), ScreenAdapter.height(20),  ScreenAdapter.height(15), ScreenAdapter.height(15)),
       child: Row(
         children: <Widget>[
           Container(

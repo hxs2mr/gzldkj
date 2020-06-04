@@ -23,27 +23,17 @@ class ServicePage extends StatefulWidget {
   ServicePageState createState() => ServicePageState();
 }
 
-class ServicePageState extends BaseState<ServicePage, ServicePresenter> {
+class ServicePageState extends BaseState<ServicePage, ServicePresenter> with AutomaticKeepAliveClientMixin{
   List<String>  banner=[
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591160592618&di=628dbee5cb9e65bb00810c240ad42e89&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170309%2F61859dee36f346e9acdf595752440769_th.jpg",
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591166327878&di=dc8c43d9ba8e258489e978b55d6135e4&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F80%2F49%2F20300000861164130821490547828.jpg"
   ];
 
   double appBarAlpha = 0;
-  _onScroll(offset) {
-    double alpha = offset / APPBAR_SCROLL_OFFSET;
-    if(alpha < 0) {
-      alpha = 0;
-    } else if(alpha > 1) {
-      alpha = 1;
-    }
-    setState(() {
-      appBarAlpha = alpha;
-    });
-    print(appBarAlpha);
-  }
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
@@ -56,11 +46,11 @@ class ServicePageState extends BaseState<ServicePage, ServicePresenter> {
                         TopToolBar(title: "服务中心",),
 
                         Container(
-                          padding: EdgeInsets.only(top: ScreenAdapter.height(130)),
+                          padding: EdgeInsets.only(top: ScreenAdapter.height(145)),
                           child:ListView(
+                            physics: BouncingScrollPhysics(),
                             padding: EdgeInsets.all(0),
                             children: [
-
                               TopBannerWidget(
                                 listData: banner,
                               ),
@@ -73,10 +63,11 @@ class ServicePageState extends BaseState<ServicePage, ServicePresenter> {
                                   Toast.show("点击");
                                   //NavigatorUtil.goVideoClassfyPage(context,StringRes.home_title2,"1");
                                 },
-                                child: ServiceVideoWidget(),
+                                child: ServiceVideoWidget(url: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591248155351&di=85368d5caeefe237492316407cf919e8&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fbaike%2Fpic%2Fitem%2F4034970a304e251f6c4e6ddca586c9177f3e535d.jpg",),
                               ),
                               HomeRowTitle(
                                 title: "企业智能服务中心筹备处",
+                                tag: 1,
                                 onPressed: () {
                                   Toast.show("点击");
                                 },
@@ -103,4 +94,8 @@ class ServicePageState extends BaseState<ServicePage, ServicePresenter> {
     // TODO: implement createPresenter
     return ServicePresenter();
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

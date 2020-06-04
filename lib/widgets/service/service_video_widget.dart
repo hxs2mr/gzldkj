@@ -7,8 +7,9 @@ import 'package:gzldtechnology/utils/sps.dart';
 //day by2020/6/3.
 //describe:
 class ServiceVideoWidget extends StatefulWidget {
-  ServiceVideoWidget({this.model});
+  ServiceVideoWidget({this.model,this.url});
   final model;
+  final url;
   @override
   ServiceVideoState createState() => ServiceVideoState();
 }
@@ -25,8 +26,8 @@ class ServiceVideoState extends State<ServiceVideoWidget> {
               children: <Widget>[
                 Sps.hPure660,
                 Container(
-                  margin: EdgeInsets.fromLTRB(ScreenAdapter.width(15), ScreenAdapter.width(15), ScreenAdapter.width(15), 0),
-                  child:  _buildStack("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591178816031&di=2ebce75b7d591c9316f32d4f583b74c6&imgtype=0&src=http%3A%2F%2Fimg.redocn.com%2F201504%2F14%2F3982157_1428972541RSzT.jpg",
+                  margin: EdgeInsets.fromLTRB(ScreenAdapter.width(15), ScreenAdapter.width(20), ScreenAdapter.width(15), 0),
+                  child:  _buildStack(widget.url,
                     "","",),
                 ),
                 Sps.buildHGaps(15.0),
