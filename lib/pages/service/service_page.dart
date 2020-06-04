@@ -44,7 +44,6 @@ class ServicePageState extends BaseState<ServicePage, ServicePresenter> with Aut
                       children: [
                         TopToolBack(tag: 1,),
                         TopToolBar(title: "服务中心",),
-
                         Container(
                           padding: EdgeInsets.only(top: ScreenAdapter.height(145)),
                           child:ListView(

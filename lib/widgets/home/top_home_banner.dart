@@ -9,23 +9,24 @@ import 'package:gzldtechnology/utils/screen_adapter.dart';
 //day by2020/6/3.
 //describe:顶部banner
 
-class TopBannerWidget extends StatefulWidget {
-  TopBannerWidget({@required this.listData});
+class TopHomeBanner extends StatefulWidget {
+  TopHomeBanner({@required this.listData});
   final listData;
   @override
-  _TopBannerWidgetState createState() => _TopBannerWidgetState();
+  _TopHomeBannerState createState() => _TopHomeBannerState();
 }
 
-class _TopBannerWidgetState extends State<TopBannerWidget> {
+class _TopHomeBannerState extends State<TopHomeBanner> {
   List<String> listData = [];
   int listDataLength = 0;
+
 
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
     return Container(
         padding: EdgeInsets.fromLTRB(ScreenAdapter.width(20.0), 0, ScreenAdapter.width(20.0), 0),
-        height: ScreenAdapter.height(330.0),
+        height: ScreenAdapter.height(158.0),
         child: _buildBlocWidget());
   }
 
@@ -99,13 +100,12 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
         borderRadius: BorderRadius.circular(ScreenAdapter.width(20.0)),
         child:new CachedNetworkImage(
           imageUrl: listData[index],
-          height: ScreenAdapter.height(330.0),
+          height: ScreenAdapter.height(158.0),
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,
         ),
       ),
-
-      autoplay: true,
+      autoplay: false,
       //onTap: jumpUrl,
       // autoplay: true,
     );

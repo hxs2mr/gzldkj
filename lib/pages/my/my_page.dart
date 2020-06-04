@@ -55,10 +55,6 @@ class MyPageState extends BaseState<MyPage,MyPresenter>with AutomaticKeepAliveCl
 
                 ],
               )
-
-
-
-
           )
 
       ),
